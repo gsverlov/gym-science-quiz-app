@@ -1,0 +1,23 @@
+{
+  "name": "gym-science-quiz-app",
+  "version": "1.0.0",
+  "description": "A single-page gym science quiz — zero dependencies.",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "js/**/*.js",
+      "!js/__tests__/**"
+    ],
+    "testMatch": [
+      "**/js/__tests__/**/*.test.js"
+    ]
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "jest-environment-jsdom": "^29.0.0"
+  }
+}

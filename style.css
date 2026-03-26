@@ -1,0 +1,272 @@
+/* ── Reset & base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-bg: #f0f2f5;
+  --color-card: #ffffff;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-text: #1e293b;
+  --color-text-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-correct: #16a34a;
+  --color-correct-bg: #dcfce7;
+  --color-correct-border: #86efac;
+  --color-incorrect: #dc2626;
+  --color-incorrect-bg: #fee2e2;
+  --color-incorrect-border: #fca5a5;
+  --color-disabled-bg: #f1f5f9;
+  --color-disabled-text: #94a3b8;
+  --color-progress-track: #e2e8f0;
+  --color-progress-fill: #2563eb;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --transition: 0.18s ease;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  line-height: 1.6;
+}
+
+/* ── Screens ── */
+.screen {
+  display: none;
+  width: 100%;
+  max-width: 640px;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 40px 36px;
+}
+
+/* ── Start screen ── */
+.logo {
+  font-size: 3.5rem;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  margin-bottom: 32px;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color var(--transition), transform var(--transition),
+    opacity var(--transition);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 12px 28px;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* ── Progress ── */
+.progress-bar-wrap {
+  background: var(--color-progress-track);
+  border-radius: 999px;
+  height: 6px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--color-progress-fill);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+  width: 0%;
+}
+
+.progress-text {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.topic-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Question ── */
+.question-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+/* ── Answer options ── */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+.option-btn {
+  background: var(--color-card);
+  color: var(--color-text);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 13px 16px;
+  text-align: left;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color var(--transition), background-color var(--transition),
+    color var(--transition);
+  width: 100%;
+  line-height: 1.45;
+}
+
+.option-btn:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  background: #eff6ff;
+}
+
+.option-btn:disabled {
+  cursor: default;
+  background: var(--color-disabled-bg);
+  color: var(--color-disabled-text);
+  border-color: var(--color-border);
+}
+
+.option-btn.correct {
+  background: var(--color-correct-bg) !important;
+  border-color: var(--color-correct-border) !important;
+  color: var(--color-correct) !important;
+  font-weight: 700;
+}
+
+.option-btn.incorrect {
+  background: var(--color-incorrect-bg) !important;
+  border-color: var(--color-incorrect-border) !important;
+  color: var(--color-incorrect) !important;
+  font-weight: 700;
+}
+
+/* ── Feedback ── */
+.feedback-container {
+  margin-top: 24px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 20px;
+}
+
+.feedback-container.hidden {
+  display: none;
+}
+
+.feedback-message {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.feedback-message.correct {
+  color: var(--color-correct);
+}
+
+.feedback-message.incorrect {
+  color: var(--color-incorrect);
+}
+
+.explanation-text {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* ── Results screen ── */
+.result-icon {
+  font-size: 3.5rem;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.results-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.score-display {
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.score-message {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  margin-bottom: 32px;
+}
