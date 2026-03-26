@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gym Science Quiz</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- ── START SCREEN ── -->
+    <section id="start-screen" class="screen active">
+      <div class="card">
+        <div class="logo" aria-hidden="true">🏋️</div>
+        <h1>Gym Science Quiz</h1>
+        <p class="subtitle">
+          Test your knowledge of exercise science — muscle physiology,
+          nutrition, and training principles.
+        </p>
+        <button id="start-btn" class="btn btn-primary">Start Quiz</button>
+      </div>
+    </section>
+
+    <!-- ── QUIZ SCREEN ── -->
+    <section id="quiz-screen" class="screen">
+      <div class="card">
+        <div class="progress-bar-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
+          <div id="progress-bar-fill" class="progress-bar-fill"></div>
+        </div>
+        <p id="progress-text" class="progress-text">Question 1 of 10</p>
+        <p id="topic-label" class="topic-label"></p>
+        <h2 id="question-text" class="question-text"></h2>
+        <div id="options-container" class="options-container"></div>
+        <div id="feedback-container" class="feedback-container hidden">
+          <p id="feedback-message" class="feedback-message"></p>
+          <p id="explanation-text" class="explanation-text"></p>
+          <button id="next-btn" class="btn btn-primary">Next Question</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── RESULTS SCREEN ── -->
+    <section id="results-screen" class="screen">
+      <div class="card">
+        <div class="result-icon" id="result-icon" aria-hidden="true">🎯</div>
+        <h2 class="results-title">Quiz Complete!</h2>
+        <p id="score-display" class="score-display"></p>
+        <p id="score-message" class="score-message"></p>
+        <button id="restart-btn" class="btn btn-primary">Restart Quiz</button>
+      </div>
+    </section>
+
+    <script src="js/questions.js"></script>
+    <script src="js/quiz.js"></script>
+  </body>
+</html>
